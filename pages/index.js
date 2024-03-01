@@ -2,8 +2,15 @@
 export default function Index() {
   return (
     <>
-     <p>Hello</p>
-     <p>World</p>
+     <main>
+       <div>
+         <h1>Learning about Git branches</h1>
+       </div>
+
+        <p>
+           my first web page .
+        </p>
+     </main>
     </>
   );
 }
