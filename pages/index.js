@@ -5,12 +5,6 @@ import { Merriweather } from "next/font/google";
 import { FaArrowRight} from "react-icons/fa6";
 import { Card, CardActions, CardContent, CardMedia, Typography, Button } from "@mui/material";
 
-const MerriReg400 = Merriweather({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: '400'
-})
-
 const MerriReg900 = Merriweather({
   subsets: ['latin'],
   display: 'swap',
@@ -23,7 +17,6 @@ export default function Index() {
       <Head>
         <title>Irun | Shop for hairs with fixes</title>
       </Head>
-
 
       <main className="h-screen bg-desktop">
         <div className="h-full w-full hidden lg:flex justify-center items-center bg-desktop">
