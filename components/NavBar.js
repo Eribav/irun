@@ -19,18 +19,7 @@ const MerriReg400 = Merriweather({
   })
 
 export function NavBar() {
-   let [showMenu, setShowMenu] = React.useState(true);
-   let [hideMenu, setHideMenu] = React.useState(false);
-
-   const menuShow = ()=>{
-     setShowMenu = (true);
-     setShowMenu = (true);
-   }
-   const menuClose = ()=>{
-     setShowMenu = (false);
-     setShowMenu = (false);
-   }
-
+    const [showMenu, setShowMenu] = React.useState(true);
     return (
         <>
         <nav  className="h-[60px] grid grid-cols-2 lg:grid-cols-3 bg-[#402B3A] border-b border-amber-600 px-2 
@@ -50,9 +39,11 @@ export function NavBar() {
             </div>
 
               {/* show only on mobile and tablets */}
-               <div className="flex-justify-end items-center lg:hidden">
-                   <HiMenuAlt3 onClick={menuShow} className={`${showMenu ? 'flex' : 'hidden'} text gray-200 text-4xl`}/>
-                   <MdClose onClick={menuClose} className="hidden text-gray-200 text-4xl"/>
+               <div className="lg:hidden flex-justify-end items-center ">
+                   <HiMenuAlt3 onClick={() => setShowMenu(false)} 
+                     className={`${showMenu ? 'flex' : 'hidden'} text gray-200 text-4xl`}/>
+                   <MdClose onClick={() => setShowMenu(true)} 
+                     className={`${showMenu ? 'flex' : 'hidden'} text gray-200 text-4xl`}/>
                </div>
 
               {/* show only on desktop */}
@@ -80,10 +71,10 @@ export function NavBar() {
             </div>
         </nav>
  
-        {/* mobile-only nav */}
-        <div className={`${!showMenu ? 'flex' :'hidden'} flex-col justify-center items-center gap-8 
+        {/*for mobile-only nav */}
+        <div className={`${!showMenu ? 'flex' :'hidden'} flex-col gap-8 justify-center items-center  
                     lg:hidden min-h-80 w-full absolute top-[60px] left-0 z-10 bg-gray-800`}>
-            <ul className="">
+            <ul className="flex flex-col gap-3">
                <li className="text-gray-200 text-2xl text-center"><Link href="#">Shop</Link></li>
                <li className="text-gray-200 text-2xl text-center"><Link href="#">Accessories</Link></li>
                <li className="text-gray-200 text-2xl text-center"><Link href="#">Showroom</Link></li>
@@ -96,9 +87,9 @@ export function NavBar() {
                         <li><Link href="#"><CiUser className={styles.navLinkIcon}/></Link></li>
                         <li><Link href="#"><CiHeart className={styles.navLinkIcon}/></Link></li>
                         <li><Link href="#"><CiShoppingCart className={styles.navLinkIcon}/></Link></li>
-                    </ul>
-            </div>
-            <div className="">
+                </ul>
+            
+            
                 <div className="flex flex-row gap-4">
                     <blockquote className="flex flex-row items-center">
                         <FaGlobeAmericas className="text-amber-400"/>
@@ -107,12 +98,12 @@ export function NavBar() {
                     </blockquote>
                     
                     <blockquote className="flex flex-row items-center">
-                        <BsCurrencyDollar className="text-amber-400"/>
+                        <BsCurrencyDollar className="text-amber-200"/>
                         <span className="text-gary-200">USD</span>
                         <MdKeyboardArrowDown className="text-gray-200"/>
                     </blockquote>
                 </div>
-            </div>
+             </div>
         </div>
         </>
     ) 
